@@ -1,10 +1,12 @@
-# KZ AI Projects Website
+# KZ AI Projects — Redwood-inspired edition
 
-Static website prepared for GitHub Pages.
+Upload these files to the root of the `kennethsanchez-ai.github.io` repository and replace the current versions:
 
-Before publishing, replace `kennethsanchez.ai@gmail.com` in `index.html` and `privacy.html` if your final Gmail address is different.
-
-Upload these files to the root of your GitHub Pages repository:
 - index.html
 - styles.css
 - privacy.html
+- README.md
+
+GitHub Pages will redeploy automatically.
+
+This is an original design inspired by warm, human-centered enterprise design principles. It does not copy Oracle assets.
