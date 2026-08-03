@@ -1,136 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="KZ AI Projects — practical AI learning, responsible experimentation, and product-focused software by Kenneth Sanchez.">
-  <meta name="theme-color" content="#f7f4ee">
-  <title>KZ AI Projects</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="KZ Modern AI — Independent AI Learning Projects by Kenneth Sanchez.">
+  <meta name="theme-color" content="#10131a">
+  <title>KZ Modern AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="#top">
-          <span class="brand-mark">KZ</span>
-          <span class="brand-text"><strong>KZ AI Projects</strong><small>Independent AI Learning Projects</small></span>
-        </a>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#principles">Principles</a>
-          <a class="nav-cta" href="#contact">Contact</a>
-        </nav>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-orb">KZ</span>
+        <span class="brand-copy"><strong>KZ Modern AI</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#architecture">Architecture</a><a href="#roadmap">Roadmap</a><a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme"><span>☀</span><span>☾</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="hero-kicker"><span class="pulse-dot"></span> Independent AI Learning Projects</div>
+          <h1>Building reliable AI systems through <span>real-world experimentation.</span></h1>
+          <p class="hero-lead">I am Kenneth Sanchez, an independent AI learner and product builder creating practical, testable software focused on responsible data use, modular architecture, and measurable outcomes.</p>
+          <div class="hero-actions"><a class="button primary" href="#projects">Explore projects →</a><a class="button secondary" href="#contact">Start a conversation</a></div>
+          <div class="hero-metrics">
+            <article><strong>135</strong><span>Automated tests passing</span></article>
+            <article><strong>v1.7.0</strong><span>Stable production release</span></article>
+            <article><strong>API-first</strong><span>Approved-source architecture</span></article>
+          </div>
+        </div>
+        <div class="visual-frame reveal delay-1">
+          <div class="visual-topbar"><span>System status</span><span class="status-pill"><i></i> Operational</span></div>
+          <div class="ai-core">
+            <div class="core-ring ring-a"></div><div class="core-ring ring-b"></div><div class="core-node">KZ</div>
+            <div class="data-chip chip-a"><span>01</span><div><b>Public sources</b><small>Approved access only</small></div></div>
+            <div class="data-chip chip-b"><span>02</span><div><b>Normalization</b><small>Total-price intelligence</small></div></div>
+            <div class="data-chip chip-c"><span>03</span><div><b>Recommendation</b><small>Transparent ranking</small></div></div>
+          </div>
+          <div class="visual-footer"><div><span>Dry-run</span><b>Enabled</b></div><div><span>Notifications</span><b>Guarded</b></div><div><span>Rollback</span><b>Verified</b></div></div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="pill"><span></span> Independent AI learner & product builder</div>
-            <h1>Useful AI begins with a <em>real problem.</em></h1>
-            <p class="lead">I am Kenneth Sanchez. I develop independent AI learning projects to explore practical software engineering, responsible data use, and product-focused problem solving.</p>
-            <div class="hero-actions">
-              <a class="button primary" href="#projects">Explore my work <span>→</span></a>
-              <a class="button ghost" href="#about">My approach</a>
-            </div>
-            <div class="proof-row">
-              <div><strong>135</strong><span>Automated tests</span></div>
-              <div><strong>1.7.0</strong><span>Stable release</span></div>
-              <div><strong>100%</strong><span>Public-source policy</span></div>
-            </div>
-          </div>
+    <section id="about" class="section-shell">
+      <div class="container split-layout">
+        <div class="section-heading reveal"><span class="section-index">01</span><p class="eyebrow">About</p><h2>Learning by shipping systems that solve something real.</h2></div>
+        <div class="section-copy reveal delay-1"><p class="large-copy">My work combines product thinking, AI learning, software engineering, and disciplined experimentation.</p><p>Rather than studying AI only in theory, I use real projects to explore system design, testing, data integration, automation, reliability, and responsible engineering practices.</p><div class="pill-row"><span>Product mindset</span><span>Responsible AI</span><span>Modular architecture</span><span>Continuous learning</span></div></div>
+      </div>
+    </section>
 
-          <aside class="focus-panel">
-            <div class="focus-top"><span>Current focus</span><span class="live-badge">● Active</span></div>
-            <div class="focus-visual">
-              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-              <div class="hotel-card hotel-a"><b>Best value</b><small>Total price normalized</small></div>
-              <div class="hotel-card hotel-b"><b>Refundability</b><small>Terms evaluated</small></div>
-              <div class="hotel-card hotel-c"><b>Family fit</b><small>Experience scored</small></div>
-              <div class="core-orb">HDH</div>
-            </div>
-            <span class="project-kicker">Hotel Deal Hunter AI</span>
-            <h2>Smarter hotel decisions, built responsibly.</h2>
-            <p>A personal-use comparison and recommendation platform designed around approved public sources, transparent ranking, and operational safeguards.</p>
-          </aside>
-        </div>
-      </section>
+    <section id="projects" class="section-shell projects-section">
+      <div class="container">
+        <div class="section-heading horizontal reveal"><div><span class="section-index">02</span><p class="eyebrow">Featured project</p><h2>Hotel Deal Hunter AI</h2></div><p>A personal-use hotel comparison and recommendation platform built around approved public sources, transparent ranking, operational safeguards, and production-minded testing.</p></div>
+        <article class="project-spotlight reveal delay-1">
+          <div class="project-copy"><div class="tag-row"><span class="tag">Public Sources Edition</span><span class="tag dark">Stable · v1.7.0</span></div><h3>From scattered hotel offers to a clear, explainable recommendation.</h3><p>The system normalizes total prices, compares cancellation policies, evaluates family suitability, tracks historical offers, suppresses duplicate alerts, and explains the tradeoff between the best recommendation and the cheapest alternative.</p><div class="project-links"><a href="https://github.com/kennethsanchez-ai" target="_blank" rel="noopener">GitHub profile ↗</a><a href="#architecture">View architecture →</a></div></div>
+          <div class="project-panel"><div class="panel-header"><span>Recommendation engine</span><span class="live">Validated</span></div><div class="recommendation-card"><div class="score">96.2<small>score</small></div><div><span class="tiny-label">Best recommendation</span><h4>Lido Beach Example Resort</h4><p>Beachfront · Refundable · Family score 9.6/10</p></div></div><div class="comparison-grid"><div><span>Best price</span><b>$275.00</b></div><div><span>Alert safety</span><b>YAML gated</b></div><div><span>Test coverage</span><b>135 passing</b></div><div><span>Dry-run mode</span><b>Non-destructive</b></div></div></div>
+        </article>
+        <div class="project-grid"><article class="mini-project reveal"><span class="mini-number">01</span><h3>Price intelligence</h3><p>Normalizes taxes, fees, total stay cost, and savings across comparable hotel offers.</p></article><article class="mini-project reveal delay-1"><span class="mini-number">02</span><h3>Decision transparency</h3><p>Explains why a recommendation wins and what tradeoffs come with cheaper alternatives.</p></article><article class="mini-project reveal delay-2"><span class="mini-number">03</span><h3>Operational resilience</h3><p>Uses self-checks, backups, dry-run mode, duplicate suppression, and guarded notifications.</p></article></div>
+      </div>
+    </section>
 
-      <section id="about" class="section">
-        <div class="container section-grid">
-          <div><span class="section-number">01</span><p class="eyebrow">About</p><h2>Learning by building systems that matter.</h2></div>
-          <div class="section-copy">
-            <p class="large-copy">My work sits at the intersection of AI learning, product management, technical problem-solving, and disciplined software delivery.</p>
-            <p>I use real projects to deepen my understanding of AI, automation, software architecture, testing, and data ethics. Each project begins with a practical need, moves through structured experimentation, and ends with measurable validation.</p>
-            <div class="value-strip"><span>Curiosity</span><span>Clarity</span><span>Reliability</span><span>Responsible access</span></div>
-          </div>
-        </div>
-      </section>
+    <section id="architecture" class="section-shell">
+      <div class="container"><div class="section-heading horizontal reveal"><div><span class="section-index">03</span><p class="eyebrow">Architecture</p><h2>Designed as a modular decision pipeline.</h2></div><p>Each stage has a clear responsibility, making the system easier to test, improve, and extend with future approved providers.</p></div>
+        <div class="architecture-map reveal delay-1"><article><span>01</span><h3>Approved sources</h3><p>Structured APIs, permitted feeds, or user-assisted inputs.</p></article><i>→</i><article><span>02</span><h3>Provider layer</h3><p>Retry, quota, source policy, and health monitoring.</p></article><i>→</i><article><span>03</span><h3>Normalization</h3><p>Price, occupancy, cancellation, and room consistency.</p></article><i>→</i><article><span>04</span><h3>Recommendation</h3><p>Ranking, explanation, comparison, and alert decisions.</p></article></div>
+        <div class="stack-strip reveal"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>PostgreSQL-ready</span><span>Pytest</span><span>Loguru</span><span>YAML configuration</span><span>REST APIs</span></div>
+      </div>
+    </section>
 
-      <section id="projects" class="section projects-section">
-        <div class="container">
-          <div class="section-intro">
-            <div><span class="section-number">02</span><p class="eyebrow">Featured project</p><h2>Hotel Deal Hunter AI</h2></div>
-            <p>A production-minded personal software project for comparing hotel offers, understanding tradeoffs, and identifying stronger family travel options.</p>
-          </div>
+    <section id="roadmap" class="section-shell roadmap-section">
+      <div class="container"><div class="section-heading horizontal reveal"><div><span class="section-index">04</span><p class="eyebrow">Roadmap</p><h2>Progress built one validated release at a time.</h2></div></div>
+        <div class="timeline"><article class="reveal"><span>v1.5</span><h3>Recommendation foundation</h3><p>Core search, scoring, comparison, and manual-source workflows.</p></article><article class="reveal delay-1"><span>v1.6</span><h3>Production stabilization</h3><p>Expanded reliability, operational controls, and packaging readiness.</p></article><article class="reveal delay-2"><span>v1.7</span><h3>Release hardening</h3><p>Self-check, dry-run, notification gating, read-only CLI, and verified deployment.</p></article><article class="reveal delay-3 future"><span>v1.8</span><h3>Approved provider integration</h3><p>Controlled real-data integration after documented access approval.</p></article></div>
+      </div>
+    </section>
 
-          <article class="project-showcase">
-            <div class="project-main">
-              <div class="project-title-row"><span class="project-tag">Public Sources Edition</span><span class="release-tag">v1.7.0</span></div>
-              <h3>A transparent recommendation engine for hotel shopping.</h3>
-              <p>The platform normalizes total stay prices, evaluates refundability and family suitability, compares recommendations against cheaper alternatives, and protects production workflows with self-checks, backups, and non-destructive dry runs.</p>
-              <a class="text-link" href="https://github.com/kennethsanchez-ai" target="_blank" rel="noopener">View GitHub profile ↗</a>
-            </div>
-            <div class="project-dashboard">
-              <div class="dashboard-top"><span>Recommendation snapshot</span><span>Validated</span></div>
-              <div class="score-block"><div class="score-ring"><span>96.2</span><small>score</small></div><div><b>Best recommendation</b><p>Balances price, cancellation terms, location, guest rating, and family fit.</p></div></div>
-              <div class="metric-list">
-                <div><span>Price normalization</span><b>All-in totals</b></div>
-                <div><span>Notification safety</span><b>YAML gated</b></div>
-                <div><span>Operational testing</span><b>135 passing</b></div>
-              </div>
-            </div>
-          </article>
+    <section id="contact" class="section-shell contact-section">
+      <div class="container contact-card reveal"><div><span class="section-index light">05</span><p class="eyebrow light">Contact</p><h2>Interested in responsible AI experimentation?</h2><p>I welcome conversations with approved data providers, AI practitioners, and technology partners who value clear rules, careful testing, and practical outcomes.</p></div><div class="contact-actions"><a class="contact-primary" href="mailto:kennethsanchez.ai@gmail.com"><span>Email</span><strong>kennethsanchez.ai@gmail.com</strong><i>→</i></a><a href="https://github.com/kennethsanchez-ai" target="_blank" rel="noopener">GitHub profile ↗</a><a href="privacy.html">Privacy statement →</a></div></div>
+    </section>
+  </main>
 
-          <div class="capability-grid">
-            <article><span>01</span><h3>Price intelligence</h3><p>Normalizes taxes, fees, total stay price, and savings across comparable offers.</p></article>
-            <article><span>02</span><h3>Decision quality</h3><p>Explains why one hotel wins and what tradeoffs come with lower-cost alternatives.</p></article>
-            <article><span>03</span><h3>Operational safety</h3><p>Uses self-check diagnostics, duplicate suppression, dry-run mode, and verified backups.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="principles" class="section">
-        <div class="container">
-          <div class="section-intro one"><div><span class="section-number">03</span><p class="eyebrow">Operating principles</p><h2>Responsible by design.</h2></div></div>
-          <div class="principles-grid">
-            <article><h3>Approved access only</h3><p>Documented APIs, authorized affiliate feeds, or user-assisted inputs—never hidden shortcuts.</p></article>
-            <article><h3>No scraping workarounds</h3><p>No CAPTCHA bypass, browser automation, or undocumented private endpoints.</p></article>
-            <article><h3>Privacy and security</h3><p>Credentials stay outside source control, and personal data collection is minimized.</p></article>
-            <article><h3>Test before release</h3><p>Every meaningful change is validated with regression tests and a clear rollback path.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container contact-panel">
-          <div><span class="section-number light">04</span><p class="eyebrow light">Contact</p><h2>Let’s explore responsible AI collaboration.</h2><p>I welcome conversations with approved data providers, AI practitioners, and technology partners who value clear access rules and thoughtful experimentation.</p></div>
-          <div class="contact-actions">
-            <a class="contact-email" href="mailto:kennethsanchez.ai@gmail.com"><span>Email</span><strong>kennethsanchez.ai@gmail.com</strong></a>
-            <a class="contact-link" href="https://github.com/kennethsanchez-ai" target="_blank" rel="noopener">GitHub profile ↗</a>
-            <a class="contact-link" href="privacy.html">Privacy statement →</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer><div class="container footer-row"><div><strong>KZ AI Projects</strong><span>Independent AI learning through practical projects.</span></div><p>© 2026 Kenneth Sanchez</p></div></footer>
-  </div>
+  <footer><div class="container footer-grid"><div><strong>KZ Modern AI</strong><span>Independent AI Learning Projects</span></div><p>© 2026 Kenneth Sanchez</p></div></footer>
 </body>
 </html>

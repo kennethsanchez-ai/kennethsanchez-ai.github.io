@@ -1,12 +1,14 @@
-# KZ AI Projects — Redwood-inspired edition
+# KZ Modern AI Portfolio
 
-Upload these files to the root of the `kennethsanchez-ai.github.io` repository and replace the current versions:
+Brand: **KZ Modern AI**  
+Positioning: **Independent AI Learning Projects**
 
-- index.html
-- styles.css
-- privacy.html
-- README.md
+Upload these files to the root of `kennethsanchez-ai.github.io` and replace the current versions:
+
+- `index.html`
+- `styles.css`
+- `script.js`
+- `privacy.html`
+- `README.md`
 
 GitHub Pages will redeploy automatically.
-
-This is an original design inspired by warm, human-centered enterprise design principles. It does not copy Oracle assets.
