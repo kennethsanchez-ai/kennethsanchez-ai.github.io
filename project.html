@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hotel Deal Hunter AI project overview by Kenneth Sanchez.">
+  <meta name="theme-color" content="#3267e8">
+  <title>Hotel Deal Hunter AI · Project Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="badge">KS</span>
+        <span><strong>Kenneth Sanchez</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="index.html#work">Portfolio</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#quality">Quality</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="cta" href="mailto:kennethsanchez.ai@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Project overview</p>
+          <h1>Hotel Deal Hunter AI</h1>
+          <p class="lead">
+            A personal-use hotel comparison and recommendation system developed for learning purposes
+            and real family travel planning.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#summary">Explore the project</a>
+            <a class="button secondary" href="https://github.com/kennethsanchez-ai" target="_blank" rel="noopener">GitHub profile ↗</a>
+          </div>
+        </div>
+        <aside class="summary-card">
+          <span>Current release</span>
+          <strong>v1.7.0</strong>
+          <div class="mini-grid">
+            <div><b>135</b><small>tests passing</small></div>
+            <div><b>Verified</b><small>production deployment</small></div>
+            <div><b>Guarded</b><small>notifications</small></div>
+            <div><b>Safe</b><small>dry-run mode</small></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="summary" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Executive summary</p>
+          <h2>Designed to make hotel decisions clearer.</h2>
+        </div>
+        <div class="copy">
+          <p class="large">
+            The project turns fragmented hotel offers into a transparent recommendation that balances price,
+            cancellation terms, location, guest experience, and family suitability.
+          </p>
+          <p>
+            It is an independent learning project, not a commercial travel company. Its purpose is to deepen
+            understanding of software architecture, data integration, testing, product decision-making,
+            and responsible use of approved travel data.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Problem statement</p><h2>Hotel shopping is difficult to compare consistently.</h2></div>
+          <p>Different providers present price, taxes, cancellation rules, occupancy, and room details in inconsistent ways.</p>
+        </div>
+        <div class="card-grid three">
+          <article><span>01</span><h3>Price ambiguity</h3><p>Base rates may exclude taxes, mandatory fees, or other costs.</p></article>
+          <article><span>02</span><h3>Policy complexity</h3><p>Refundability and cancellation terms are often hard to compare.</p></article>
+          <article><span>03</span><h3>Family fit</h3><p>Occupancy and suitability can vary even when room names look similar.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Architecture overview</p><h2>A modular decision pipeline.</h2></div>
+          <p>Each stage has a clear responsibility so the system can be tested, extended, and reviewed safely.</p>
+        </div>
+        <div class="pipeline">
+          <article><span>1</span><h3>Approved sources</h3><p>Documented APIs, approved feeds, or user-assisted inputs.</p></article>
+          <i>→</i>
+          <article><span>2</span><h3>Provider layer</h3><p>Retry, quota, source policy, and health monitoring.</p></article>
+          <i>→</i>
+          <article><span>3</span><h3>Normalization</h3><p>Price, occupancy, cancellation, and room consistency.</p></article>
+          <i>→</i>
+          <article><span>4</span><h3>Recommendation</h3><p>Ranking, explanation, comparison, and alert decisions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Technology stack</p><h2>Practical tools, chosen for reliability.</h2></div></div>
+        <div class="stack">
+          <span>Python</span><span>FastAPI</span><span>SQLite</span><span>PostgreSQL-ready</span>
+          <span>Pytest</span><span>Loguru</span><span>YAML configuration</span><span>REST APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Testing & quality</p><h2>Built with production-minded safeguards.</h2></div>
+          <p>The project emphasizes controlled changes, reproducible validation, and rollback readiness.</p>
+        </div>
+        <div class="card-grid four">
+          <article><h3>135 tests passing</h3><p>Regression coverage across core workflows and stabilization changes.</p></article>
+          <article><h3>Self-check</h3><p>Validates configuration, profile status, notifications, providers, and version consistency.</p></article>
+          <article><h3>Dry-run mode</h3><p>Exercises the decision path without notifications or persistent writes.</p></article>
+          <article><h3>Verified backups</h3><p>Creates a rollback point before production upgrades.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section policy">
+      <div class="container split">
+        <div>
+          <p class="eyebrow light">Responsible data access</p>
+          <h2>Approved access only.</h2>
+        </div>
+        <div class="copy light-copy">
+          <p class="large">The project is designed to use documented APIs, approved affiliate feeds, or user-assisted data sources.</p>
+          <p>It does not scrape websites, automate browsers, bypass CAPTCHAs, or use undocumented private endpoints.</p>
+          <p>Credentials remain outside source control, and any future commercial use would require appropriate provider approval.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section alt">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Roadmap</p><h2>Progress through disciplined releases.</h2></div></div>
+        <div class="roadmap">
+          <article><span>v1.5</span><h3>Foundation</h3><p>Core search, scoring, comparison, and manual workflows.</p></article>
+          <article><span>v1.6</span><h3>Stabilization</h3><p>Reliability, controls, and packaging readiness.</p></article>
+          <article><span>v1.7</span><h3>Production readiness</h3><p>Self-check, dry-run, notification gating, and verified deployment.</p></article>
+          <article class="future"><span>v1.8</span><h3>Approved provider integration</h3><p>Integrate a documented hotel-rate source after formal access approval.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow light">Contact</p>
+          <h2>Questions about the project or approved API access?</h2>
+          <p>I welcome conversations with travel-data providers, engineers, and product leaders.</p>
+        </div>
+        <div>
+          <a href="mailto:kennethsanchez.ai@gmail.com">kennethsanchez.ai@gmail.com →</a>
+          <a href="index.html">Return to portfolio →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
