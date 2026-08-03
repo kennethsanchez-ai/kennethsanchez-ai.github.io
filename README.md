@@ -1,14 +1,7 @@
-# KZ Modern AI Portfolio
+# Kenneth Sanchez Portfolio
 
-Brand: **KZ Modern AI**  
-Positioning: **Independent AI Learning Projects**
+**Independent AI Learning Projects**
 
-Upload these files to the root of `kennethsanchez-ai.github.io` and replace the current versions:
+A bold editorial/product portfolio with vibrant human-centered colors and no generic AI aesthetic.
 
-- `index.html`
-- `styles.css`
-- `script.js`
-- `privacy.html`
-- `README.md`
-
-GitHub Pages will redeploy automatically.
+Upload `index.html`, `styles.css`, `script.js`, `privacy.html`, and `README.md` to the root of `kennethsanchez-ai.github.io`.
