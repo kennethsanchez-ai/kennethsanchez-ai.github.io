@@ -1,7 +1,12 @@
-# Kenneth Sanchez Portfolio
+# Kenneth Sanchez Portfolio — Ethereal Mobile Edition
 
-**Independent AI Learning Projects**
+This update keeps the portfolio text unchanged while improving the Featured Project visual, mobile readability, and section navigation.
 
-A bold editorial/product portfolio with vibrant human-centered colors and no generic AI aesthetic.
+## Highlights
+- Ethereal decision-network graph for the Featured Project
+- Smaller mobile hero headline
+- Compact mobile spacing
+- Automatic horizontal carousel for Work, Approach, Story, and Let’s connect
+- Direct navigation when a slide is tapped
 
-Upload `index.html`, `styles.css`, `script.js`, `privacy.html`, and `README.md` to the root of `kennethsanchez-ai.github.io`.
+Upload all five files to the root of `kennethsanchez-ai.github.io`.
