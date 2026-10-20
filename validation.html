@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What the v2.2.0 tests, CI, package checks, and offline smoke tests establish—and what remains unverified.">
+  <meta name="theme-color" content="#3267e8">
+  <title>Validation · Hotel Deal Hunter AI v2.2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="badge">KS</span>
+        <span><strong>Kenneth Sanchez</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="index.html#work">Portfolio</a>
+        <a href="project.html#architecture">Architecture</a>
+        <a href="project.html#quality">Quality</a>
+        <a href="project.html#roadmap">Roadmap</a>
+        <a class="cta" href="mailto:kennethsanchez.ai@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="hero doc-hero">
+      <div class="container">
+        <p class="eyebrow">Technical documentation · v2.2.0</p>
+        <h1>Validation</h1><p class="lead">What the v2.2.0 tests, CI, package checks, and offline smoke tests establish—and what remains unverified.</p>
+        <div class="doc-links" role="navigation" aria-label="Technical documentation"><a href="project.html">Project overview</a><a href="architecture.html">Architecture</a><a href="features.html">Features</a><a href="validation.html" aria-current="page">Validation</a><a href="roadmap.html">Roadmap</a></div>
+        <p class="doc-note">Public technical overview of a private personal-use project. Source code, CLI access, CI records, and release artifacts are not public downloads. Examples describe implemented behavior, not a hosted service.</p>
+      </div>
+    </section>
+    <div class="container doc-layout">
+      <aside class="doc-contents" aria-label="On this page"><h2>On this page</h2><ul class="doc-toc"><li><a href="#evidence">Evidence scope</a></li><li><a href="#tests">What the automated tests cover</a></li><li><a href="#ci">Python and container CI</a></li><li><a href="#packages">Distribution and metadata validation</a></li><li><a href="#smoke">Offline smoke tests and artifact integrity</a></li><li><a href="#limits">Known limits and nonblocking observation</a></li></ul></aside>
+      <div class="doc-body"><section id="evidence" class="doc-section" aria-labelledby="evidence-title"><h2 id="evidence-title">Evidence scope</h2><p>This page summarizes recorded validation for the completed private v2.2.0 release. The release candidate passed 428 local tests, and the complete suite passed again before and after the release metadata commit. Focused version, reporting, and persisted-data security checks passed 114 tests. These are historical release results, not a new test execution or a live production assessment.</p><p>The underlying source, CI, release, and attachment records are private. This public summary deliberately provides no inaccessible CI links, release download links, credentials, infrastructure identifiers, or operational paths. Publicly readable documentation does not imply public application access.</p></section>
+<section id="tests" class="doc-section" aria-labelledby="tests-title"><h2 id="tests-title">What the automated tests cover</h2><div class="doc-grid"><article class="doc-card"><h3>Reporting compatibility</h3><p>Text and JSON stdout behavior, document schema, insertion order, timestamp precision, null evidence, and equivalence between stdout and explicit file output.</p></article><article class="doc-card"><h3>Export failure behavior</h3><p>Exclusive creation, existing-file protection, missing-parent failure, UTF-8 LF output, silent success, and non-finite rejection before file creation.</p></article><article class="doc-card"><h3>Persisted-data boundaries</h3><p>Malformed observations, safe warning fields, redaction of raw errors and transient identifiers, non-finite latency, and read-only database behavior.</p></article><article class="doc-card"><h3>Diagnostic semantics</h3><p>Authoritative monthly counts versus bounded recent events, strict HTTP statuses, health ages, malformed or future timestamps, and trust/health separation.</p></article></div><p>Regression coverage also exercises recommendation tie-break rules, provider trust, quota behavior, registry contracts, and existing CLI workflows. Test success verifies the assertions and fixtures used; it does not establish correctness for every possible provider response.</p></section>
+<section id="ci" class="doc-section" aria-labelledby="ci-title"><h2 id="ci-title">Python and container CI</h2><p>The v2.2.0 tag workflow completed successfully on Python 3.12 and Python 3.13. Both jobs installed the declared application/test extras, ran pytest, and ran Python compilation checks. The dependent container/build job also completed successfully. The workflow builds the container with image pushing disabled.</p><p>The released commit was fast-forwarded into main without a merge commit, squash, or rebase. Main CI succeeded on the same release commit. A subsequent documentation-only finalization commit also passed the Python and container jobs. These successful builds are not a deployment, a registry upload, or validation against live provider accounts.</p></section>
+<section id="packages" class="doc-section" aria-labelledby="packages-title"><h2 id="packages-title">Distribution and metadata validation</h2><p>An isolated temporary source copy produced a v2.2.0 wheel and source distribution using existing build tooling. Both artifacts identified version 2.2.0; project/runtime version consistency, Python compatibility metadata, dependency syntax, declared extras, and both CLI entry points were checked.</p><p>Archive inspection confirmed the reporting package and all four PostgreSQL SQL package-data files. The source archive includes the README; the wheel carries its package description in metadata. Tests are excluded from the runtime wheel and retained in the sdist under the approved packaging policy. No actual credentials, databases, logs, caches, or unintended build/development directories were identified.</p><p>All 83 packaged source/data files were compared with the release source; content matched after normalizing Windows line endings. The sdist’s README and project metadata were checked as well. Packaging validation does not certify a live database deployment or migration execution.</p></section>
+<section id="smoke" class="doc-section" aria-labelledby="smoke-title"><h2 id="smoke-title">Offline smoke tests and artifact integrity</h2><p>Smoke tests imported the built wheel and ran Price Intelligence and Provider Status in text and JSON formats using isolated temporary configuration. Network access and search execution were blocked. Missing-database reporting created no database. File export matched stdout JSON byte for byte and passed silent-success, overwrite-rejection, and missing-parent checks.</p><p>The two validated distributions were uploaded as private GitHub release attachments, then downloaded into a separate temporary location. Their SHA256 hashes matched the approved local artifacts. Attachment names, sizes, and GitHub-reported digests were reconfirmed during release documentation finalization. The public website does not expose these private files or offer downloads.</p><p>The annotated release tag still identifies the original release commit. Main integration preserved that commit, while the later documentation-only commit did not move or recreate the release tag. These checks establish release identity and integrity independently of provider access.</p></section>
+<section id="limits" class="doc-section" aria-labelledby="limits-title"><h2 id="limits-title">Known limits and nonblocking observation</h2><p><strong>Source-distribution fixtures:</strong> the sdist omits the two JSON fixtures used by the Hotelbeds and KAYAK tests. Including tests in a source distribution is intentional policy; the missing fixture data means the archive is not a complete standalone test checkout. Full-suite validation uses the repository checkout. This limitation was reviewed and accepted as nonblocking; no packaging change was made for v2.2.0.</p><p><strong>Not validated live:</strong> these results do not establish live KAYAK or Hotelbeds access, fresh hotel availability, production reliability, provider authorization, billing correctness, or successful booking. No provider was enabled as part of the release, and no application deployment or PyPI publication was performed.</p><p>See <a href="features.html">feature boundaries</a> for side effects and <a href="roadmap.html">the roadmap</a> for the approval gates that remain ahead of any live integration.</p></section></div>
+    </div>
+  </main>
+  <footer class="container doc-footer">
+    <p><a href="project.html">← Back to Hotel Deal Hunter AI</a></p>
+    <p>Questions? <a href="mailto:kennethsanchez.ai@gmail.com">Contact Kenneth Sanchez</a> · <a href="index.html#work">Portfolio</a></p>
+  </footer>
+</body>
+</html>

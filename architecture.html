@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How configured searches, provider boundaries, persisted observations, and read-only reports fit together.">
+  <meta name="theme-color" content="#3267e8">
+  <title>Architecture · Hotel Deal Hunter AI v2.2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="badge">KS</span>
+        <span><strong>Kenneth Sanchez</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="index.html#work">Portfolio</a>
+        <a href="project.html#architecture">Architecture</a>
+        <a href="project.html#quality">Quality</a>
+        <a href="project.html#roadmap">Roadmap</a>
+        <a class="cta" href="mailto:kennethsanchez.ai@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="hero doc-hero">
+      <div class="container">
+        <p class="eyebrow">Technical documentation · v2.2.0</p>
+        <h1>Architecture</h1><p class="lead">How configured searches, provider boundaries, persisted observations, and read-only reports fit together.</p>
+        <div class="doc-links" role="navigation" aria-label="Technical documentation"><a href="project.html">Project overview</a><a href="architecture.html" aria-current="page">Architecture</a><a href="features.html">Features</a><a href="validation.html">Validation</a><a href="roadmap.html">Roadmap</a></div>
+        <p class="doc-note">Public technical overview of a private personal-use project. Source code, CLI access, CI records, and release artifacts are not public downloads. Examples describe implemented behavior, not a hosted service.</p>
+      </div>
+    </section>
+    <div class="container doc-layout">
+      <aside class="doc-contents" aria-label="On this page"><h2>On this page</h2><ul class="doc-toc"><li><a href="#overview">A private decision-support system</a></li><li><a href="#flow">Two paths through the system</a></li><li><a href="#providers">Provider abstraction and trust</a></li><li><a href="#intelligence">Price Intelligence and diagnostics</a></li><li><a href="#persistence">Persistence and side-effect boundaries</a></li><li><a href="#decisions">Design decisions that preserve boundaries</a></li></ul></aside>
+      <div class="doc-body"><section id="overview" class="doc-section" aria-labelledby="overview-title"><h2 id="overview-title">A private decision-support system</h2><p>Hotel Deal Hunter AI combines configurable hotel searches, normalized offers, recommendation scoring, and historical-price reporting. It supports personal travel decisions; it is not a booking service, a universal live-rate feed, or a publicly deployed application. This overview describes the v2.2.0 implementation and its tested boundaries.</p><p>The CLI is the operator entry point. Configuration and an optional named profile define destination, dates, occupancy, budget, and flexibility. A search coordinator uses a strategy component to choose the next configured provider or a verification decision. Adapter implementations translate source-specific responses into a common offer model. Recommendation and reporting components then work with normalized data rather than vendor response formats.</p></section>
+<section id="flow" class="doc-section" aria-labelledby="flow-title"><h2 id="flow-title">Two paths through the system</h2><figure class="doc-diagram"><figcaption>Search execution writes observations; reporting reads them independently.</figcaption><ol class="doc-flow"><li><strong>1. Request &amp; strategy</strong><span>Configuration, profile, budget, and remaining providers guide the search decision.</span></li><li><strong>2. Provider boundary</strong><span>Configured adapters search and normalize results under source policy, retry, timeout, and quota controls.</span></li><li><strong>3. Persist &amp; assess</strong><span>Observations and runtime health are recorded; offers are deduplicated, ranked, and considered for verification.</span></li><li><strong>4. Explain &amp; notify</strong><span>Recommendations and guarded alert decisions follow existing verification and notification rules.</span></li></ol><div class="doc-report-path"><strong>Separate reporting path</strong><p>Persisted observations, health, and usage records → validated report documents → text or JSON stdout; Price Intelligence can also create an explicitly requested JSON file.</p></div><p class="doc-caption">Arrows indicate data dependencies, not live provider calls from reporting. The reporting path does not execute a search or delivery step.</p></figure><p>The scan strategy considers the current best price, target and maximum budgets, remaining providers, and permitted expansion decisions. The coordinator controls which decisions are executed. A strategy capability is not evidence that an external source has been approved or exercised live.</p></section>
+<section id="providers" class="doc-section" aria-labelledby="providers-title"><h2 id="providers-title">Provider abstraction and trust</h2><p>Providers share search and verification interfaces and declare capabilities separately from trust. Capabilities describe supported operations; trust describes source authorization, evaluation-only status, production eligibility, verification level, and consumer-total assurance. Configuration may narrow declared trust but cannot upgrade it.</p><p>Normalization, price completeness, and eligibility checks prevent an incomplete or evaluation-only result from becoming a trusted production recommendation merely because a request succeeded. Manual inputs also require validation. Fixture-based adapter mapping demonstrates parsing behavior; it does not establish an approved, runnable live integration.</p><p>Runtime health records success, failure, latency, and recent activity. It is observational. A healthy response does not grant authorization, and an unhealthy record does not rewrite the static trust policy or ranking rules.</p></section>
+<section id="intelligence" class="doc-section" aria-labelledby="intelligence-title"><h2 id="intelligence-title">Price Intelligence and diagnostics</h2><p>Price Intelligence evaluates saved offers against the target budget and compatible historical observations. Compatibility includes hotel, stay dates, currency, room type, occupancy, and trusted all-in-price evidence. Historical median, recent low, and volatility evidence require at least three compatible observations; limited evidence is reported as such. Price freshness and confidence explain evidence quality rather than guaranteeing a future rate.</p><p>The read-only Price Intelligence CLI is separate from recommendation ranking. Its report does not change search order, ranking scores, or tie-break rules. Provider Status similarly combines static registration metadata with allowlisted persisted health and usage fields; it does not instantiate providers or launch a fresh health probe.</p></section>
+<section id="persistence" class="doc-section" aria-labelledby="persistence-title"><h2 id="persistence-title">Persistence and side-effect boundaries</h2><p>Repository interfaces encapsulate observations, health, usage activity, and operational records. SQLite is used by the report CLI. A separate repository factory supports PostgreSQL for configured consumers, with migration SQL included in distributions. That support does not mean these CLI reports read arbitrary PostgreSQL deployments.</p><p>Report commands open an existing local history database without initializing a missing one. They do not write health or quota records. The explicit Price Intelligence file export is the reporting path’s requested write: a new file in an existing directory. Search and monitoring are different paths and can perform provider calls and persistence.</p></section>
+<section id="decisions" class="doc-section" aria-labelledby="decisions-title"><h2 id="decisions-title">Design decisions that preserve boundaries</h2><dl class="doc-definitions"><dt>Deterministic reporting</dt><dd>Shared UTC formatting and strict JSON serialization keep output predictable while leaving document construction and redaction with each report.</dd><dt>Enforcement versus observation</dt><dd>Provider quota controls govern calls. Provider Status reports historical activity, not allowance, exhaustion, or enforcement decisions.</dd><dt>Fail-closed evidence</dt><dd>Malformed persisted rows produce bounded, allowlisted warnings instead of raw payloads or trusted fallback offers.</dd><dt>Stable behavior</dt><dd>v2.2.0 adds reporting mechanics without changing recommendation ranking, provider eligibility, API contracts, or database schema.</dd></dl><p>See <a href="features.html">implemented features</a> for commands and <a href="validation.html">validation</a> for the evidence and limits behind these claims.</p></section></div>
+    </div>
+  </main>
+  <footer class="container doc-footer">
+    <p><a href="project.html">← Back to Hotel Deal Hunter AI</a></p>
+    <p>Questions? <a href="mailto:kennethsanchez.ai@gmail.com">Contact Kenneth Sanchez</a> · <a href="index.html#work">Portfolio</a></p>
+  </footer>
+</body>
+</html>

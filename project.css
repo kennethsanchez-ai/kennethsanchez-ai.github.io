@@ -27,3 +27,41 @@ h1,h2,h3{margin-top:0}h1{font-family:"Archivo Black";font-size:clamp(3.6rem,7vw,
 .contact{background:var(--cream)}.contact-card{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;padding:50px;border-radius:30px;background:var(--coral);color:white}.contact-card p{color:rgba(255,255,255,.72)}.contact-card>div:last-child{display:grid;gap:12px;align-self:center}.contact-card a{padding:15px 17px;border:1px solid rgba(255,255,255,.28);border-radius:14px;text-decoration:none;font-weight:700}
 @media(max-width:900px){nav{display:none}.hero-grid,.split,.section-head,.contact-card{grid-template-columns:1fr}.three,.four,.roadmap{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:1fr}.pipeline i{transform:rotate(90deg);justify-self:center}}
 @media(max-width:600px){.container{width:min(100% - 24px,1160px)}.brand small{display:none}.hero,.section{padding:68px 0}h1{font-size:3rem}.three,.four,.roadmap{grid-template-columns:1fr}.mini-grid{grid-template-columns:1fr}.contact-card{padding:28px 20px}}
+
+/* Public technical documentation; shared project branding remains unchanged. */
+.skip-link{position:fixed;top:8px;left:8px;transform:translateY(-150%);z-index:100;background:var(--ink);color:white;padding:12px 18px;border-radius:10px}
+.skip-link:focus{transform:translateY(0)}
+.docs-page :focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.docs-page .doc-hero{padding:68px 0 48px}
+.docs-page h1{font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.08;overflow-wrap:anywhere}
+.doc-hero .lead{max-width:70ch}
+.doc-links{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0}
+.doc-links a{padding:9px 13px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:var(--white);font-size:.86rem;font-weight:700}
+.doc-links a[aria-current="page"]{background:var(--ink);color:white}
+.doc-note{max-width:80ch;color:var(--muted);font-size:.86rem}
+.doc-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;padding-top:56px;padding-bottom:72px}
+.doc-contents{align-self:start;position:sticky;top:104px;font-size:.86rem}
+.doc-contents h2{font-family:"DM Sans",sans-serif;font-size:1.1rem}
+.doc-toc{padding-left:20px}.doc-toc li{margin-bottom:12px}
+.doc-body{min-width:0}.doc-section{margin-bottom:56px;scroll-margin-top:106px}
+.doc-section h2{font-family:"Archivo Black",sans-serif;font-size:clamp(1.65rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.035em;overflow-wrap:anywhere}
+.doc-section h3{font-size:1.05rem;line-height:1.4}
+.doc-section p,.doc-section li,.doc-section dd{color:var(--muted)}
+.doc-section p{max-width:78ch}.doc-section strong{color:var(--ink)}
+.doc-section li{margin-bottom:10px}.doc-section ul,.doc-section ol{padding-left:22px}
+.doc-section a,.doc-footer a{color:#2453c4;text-underline-offset:3px}
+.doc-section code{font-size:.9em;overflow-wrap:anywhere}
+.doc-section pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:22px;border-radius:18px;background:var(--ink);color:white;font-size:.86rem;line-height:1.7}
+.doc-definitions dt{font-weight:700;margin-top:20px;overflow-wrap:anywhere}
+.doc-definitions dd{margin:7px 0 18px}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.doc-card{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--white)}
+.doc-diagram{margin:26px 0;padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--white)}
+.doc-diagram figcaption{font-weight:700;margin-bottom:20px}
+.doc-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;list-style:none;padding:0!important}
+.doc-flow li{padding:18px;border-radius:14px;background:var(--cream2);margin:0}
+.doc-flow strong,.doc-flow span{display:block}.doc-flow span{font-size:.86rem;margin-top:8px}
+.doc-report-path{border-top:2px solid var(--blue);margin-top:20px;padding-top:18px}
+.doc-caption{font-size:.82rem}.doc-footer{border-top:1px solid var(--line);padding-top:24px;padding-bottom:36px;font-size:.9rem}
+@media(max-width:900px){.doc-layout{grid-template-columns:minmax(0,1fr);gap:28px}.doc-contents{position:static}.doc-toc{display:flex;flex-wrap:wrap;gap:8px 24px}.doc-toc li{margin:0}.doc-section{scroll-margin-top:96px}}
+@media(max-width:600px){.doc-toc{display:block}.doc-toc li{margin-bottom:10px}.doc-grid,.doc-flow{grid-template-columns:minmax(0,1fr)}.doc-layout{padding-top:32px;padding-bottom:36px}.doc-diagram{padding:16px}.doc-section pre{padding:16px}.doc-links a{font-size:.8rem}.doc-hero .doc-note{font-size:.82rem}}

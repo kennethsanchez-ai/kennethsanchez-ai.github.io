@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Completed v2.0.0, v2.1.0, and v2.2.0 work, separated from approval-dependent future integration.">
+  <meta name="theme-color" content="#3267e8">
+  <title>Release roadmap · Hotel Deal Hunter AI v2.2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="badge">KS</span>
+        <span><strong>Kenneth Sanchez</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="index.html#work">Portfolio</a>
+        <a href="project.html#architecture">Architecture</a>
+        <a href="project.html#quality">Quality</a>
+        <a href="project.html#roadmap">Roadmap</a>
+        <a class="cta" href="mailto:kennethsanchez.ai@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="hero doc-hero">
+      <div class="container">
+        <p class="eyebrow">Technical documentation · v2.2.0</p>
+        <h1>Release roadmap</h1><p class="lead">Completed v2.0.0, v2.1.0, and v2.2.0 work, separated from approval-dependent future integration.</p>
+        <div class="doc-links" role="navigation" aria-label="Technical documentation"><a href="project.html">Project overview</a><a href="architecture.html">Architecture</a><a href="features.html">Features</a><a href="validation.html">Validation</a><a href="roadmap.html" aria-current="page">Roadmap</a></div>
+        <p class="doc-note">Public technical overview of a private personal-use project. Source code, CLI access, CI records, and release artifacts are not public downloads. Examples describe implemented behavior, not a hosted service.</p>
+      </div>
+    </section>
+    <div class="container doc-layout">
+      <aside class="doc-contents" aria-label="On this page"><h2>On this page</h2><ul class="doc-toc"><li><a href="#status">Current project status</a></li><li><a href="#v200">v2.0.0 — trust and evidence foundations</a></li><li><a href="#v210">v2.1.0 — structured, safer reports</a></li><li><a href="#v220">v2.2.0 — reporting mechanics consolidation</a></li><li><a href="#future">Future work — approval-dependent, not scheduled</a></li></ul></aside>
+      <div class="doc-body"><section id="status" class="doc-section" aria-labelledby="status-title"><h2 id="status-title">Current project status</h2><p>v2.2.0 is the current completed release. Its private GitHub release and validated artifacts are published, the release commit was integrated into main by fast-forward, and post-release documentation was finalized. Release and main CI succeeded. The public project website provides an overview and technical documentation; it does not distribute the application or expose private release assets.</p><p>The sequence below is based on tagged source history and release records. “Completed” means the code and recorded validation for that version exist. It does not imply provider access approval, live validation, deployment, or public download availability.</p></section>
+<section id="v200" class="doc-section" aria-labelledby="v200-title"><h2 id="v200-title">v2.0.0 — trust and evidence foundations</h2><p><strong>Completed.</strong> This release established explicit provider trust metadata, runtime health monitoring, registration/onboarding descriptions, and stronger manual-offer validation. Provider capabilities and trust became separate concepts so that an implemented operation would not itself grant production eligibility.</p><ul><li>Explicit source authorization, evaluation-only status, production eligibility, verification, and consumer-total assurance.</li><li>Runtime health observations separate from static trust policy.</li><li>Validated manual offers and a fixture-only KAYAK evaluation mapping, without claiming a live integration.</li><li>Price Intelligence 2.0 foundations for compatible historical evidence, freshness, volatility, and deterministic confidence.</li><li>A read-only Price Intelligence text CLI that did not change recommendation ranking.</li></ul><p>These foundations explain why later reporting can describe trust, health, and price evidence without merging those responsibilities. An adapter’s presence in source does not establish source approval or production readiness.</p></section>
+<section id="v210" class="doc-section" aria-labelledby="v210-title"><h2 id="v210-title">v2.1.0 — structured, safer reports</h2><p><strong>Completed.</strong> v2.1.0 added structured Price Intelligence JSON output to stdout and read-only Provider Status text/JSON reporting. Those existing capabilities are distinct from v2.2.0’s later file export and additional diagnostics.</p><ul><li>Schema-versioned Price Intelligence JSON with safe, explicit fields.</li><li>Provider Status reporting of static metadata and persisted operational health.</li><li>Hardened malformed persisted-data handling and allowlisted warnings instead of raw payload/error disclosure.</li><li>README package metadata and a test-only dependency adjustment supporting warning-free TestClient validation.</li></ul><p>Reporting continued to leave recommendation ranking, search coordination, API behavior, and database migrations unchanged. Safer parsing was a reporting boundary, not a way to turn malformed observations into trusted offers.</p></section>
+<section id="v220" class="doc-section" aria-labelledby="v220-title"><h2 id="v220-title">v2.2.0 — reporting mechanics consolidation</h2><p><strong>Completed.</strong> Three milestones expanded observability while retaining the existing reporting contract.</p><ol><li><strong>JSON file export:</strong> exclusive creation, no overwrite or automatic parent directory, UTF-8 LF output, serialization before file creation, and silent stdout on success.</li><li><strong>Provider diagnostics:</strong> authoritative current UTC-month usage counts, a bounded recent-event count, strictly parsed HTTP status fields, and descriptive health ages.</li><li><strong>Shared serialization:</strong> common whole-second UTC timestamps and deterministic strict JSON with one trailing newline.</li></ol><p>The release retains schema version <code>"1"</code>; Provider Status includes the planned quota and health-age additions. It passed 428 local tests and successful Python 3.12, Python 3.13, and container/build CI. File-export equivalence, offline smoke tests, package metadata, archive contents, and downloaded artifact hashes were verified.</p><p>Search behavior, ranking/tie-break rules, trust and eligibility, quota enforcement, dependencies, API contracts, and database schema were not changed by these milestones. The known missing sdist fixture observation remains nonblocking. See <a href="validation.html">validation scope</a> for the limits behind these results.</p></section>
+<section id="future" class="doc-section" aria-labelledby="future-title"><h2 id="future-title">Future work — approval-dependent, not scheduled</h2><p>The documented forward direction is integration with an explicitly approved hotel-rate source. Source-onboarding documentation requires written permission for the intended automated use, documented schemas and terms, rate/caching/storage limits, sandbox checks, and separate production enablement approval.</p><ol><li>Confirm a documented, permitted rate-access route and its allowed use.</li><li>Obtain the necessary access and usage terms through the provider’s official process.</li><li>Develop or adapt against documented schemas with fixtures and sandbox validation.</li><li>Validate quota behavior, offer completeness, and re-verification before separately approved activation.</li></ol><p>This is a gated direction, not a promise that an application has been accepted, that a source is enabled, or that live validation is complete. Existing evaluation or synthetic mappings do not satisfy those gates by themselves.</p><p>No v2.3.0 scope, completion date, production launch, or public package release is committed here. Future versions and schedules remain unspecified. This documentation adds no new product commitments beyond the existing approval-dependent source-onboarding direction.</p></section></div>
+    </div>
+  </main>
+  <footer class="container doc-footer">
+    <p><a href="project.html">← Back to Hotel Deal Hunter AI</a></p>
+    <p>Questions? <a href="mailto:kennethsanchez.ai@gmail.com">Contact Kenneth Sanchez</a> · <a href="index.html#work">Portfolio</a></p>
+  </footer>
+</body>
+</html>

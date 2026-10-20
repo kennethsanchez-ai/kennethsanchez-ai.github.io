@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The verified v2.2.0 CLI and reporting capabilities, with explicit side-effect and availability boundaries.">
+  <meta name="theme-color" content="#3267e8">
+  <title>Implemented features · Hotel Deal Hunter AI v2.2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="badge">KS</span>
+        <span><strong>Kenneth Sanchez</strong><small>Independent AI Learning Projects</small></span>
+      </a>
+      <nav>
+        <a href="index.html#work">Portfolio</a>
+        <a href="project.html#architecture">Architecture</a>
+        <a href="project.html#quality">Quality</a>
+        <a href="project.html#roadmap">Roadmap</a>
+        <a class="cta" href="mailto:kennethsanchez.ai@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="hero doc-hero">
+      <div class="container">
+        <p class="eyebrow">Technical documentation · v2.2.0</p>
+        <h1>Implemented features</h1><p class="lead">The verified v2.2.0 CLI and reporting capabilities, with explicit side-effect and availability boundaries.</p>
+        <div class="doc-links" role="navigation" aria-label="Technical documentation"><a href="project.html">Project overview</a><a href="architecture.html">Architecture</a><a href="features.html" aria-current="page">Features</a><a href="validation.html">Validation</a><a href="roadmap.html">Roadmap</a></div>
+        <p class="doc-note">Public technical overview of a private personal-use project. Source code, CLI access, CI records, and release artifacts are not public downloads. Examples describe implemented behavior, not a hosted service.</p>
+      </div>
+    </section>
+    <div class="container doc-layout">
+      <aside class="doc-contents" aria-label="On this page"><h2>On this page</h2><ul class="doc-toc"><li><a href="#scope">What is implemented and who can use it</a></li><li><a href="#cli">Verified command groups</a></li><li><a href="#price">Price Intelligence: text, JSON, and file export</a></li><li><a href="#status">Provider Status: observation, not enforcement</a></li><li><a href="#health">Health ages and serialization guarantees</a></li><li><a href="#safety">Operational safeguards and limits</a></li></ul></aside>
+      <div class="doc-body"><section id="scope" class="doc-section" aria-labelledby="scope-title"><h2 id="scope-title">What is implemented and who can use it</h2><p>The private application includes a CLI for configured searches, monitoring, manual offers, history, comparison, reporting, and operational checks. These are implemented capabilities, not public web services. The examples below describe commands available in an authorized local installation; this website does not provide source access, credentials, package downloads, or live hotel inventory.</p><p>Existing capabilities include normalized offer comparison, deterministic recommendation ordering, profile-aware requests, guarded notifications, and compatible historical-price analysis. v2.2.0 specifically adds JSON file export, persisted quota activity, health ages, and consolidated reporting serialization.</p></section>
+<section id="cli" class="doc-section" aria-labelledby="cli-title"><h2 id="cli-title">Verified command groups</h2><dl class="doc-definitions"><dt>Profiles and source inspection</dt><dd><code>profiles</code>, <code>profile-show</code>, and <code>sources</code> inspect available configuration or source catalog information. <code>profile-use</code> changes the selected profile.</dd><dt>Manual offers and browsing</dt><dd><code>manual-template</code>, <code>manual-import</code>, and <code>manual-add</code> support user-confirmed offers. <code>search-links</code> lists user-assisted source links; browser-opening options open ordinary pages rather than scraping them.</dd><dt>History and comparison</dt><dd><code>price-history</code> and <code>compare-offers</code> review persisted observations and latest offers. Price Intelligence adds evidence about savings, compatible history, freshness, volatility, and confidence.</dd><dt>Search and monitoring</dt><dd><code>scan</code> runs a configured scan. <code>run</code>, <code>pause</code>, <code>resume</code>, and <code>stop</code> support monitoring control. These workflows are not the read-only reporting path.</dd><dt>Operational checks</dt><dd><code>self-check</code> and <code>backup-verify</code> inspect configuration or backup readiness; they are not certification of a production deployment.</dd></dl><p>The CLI supports <code>--profile</code> for profile selection. <code>--format json</code> is limited to Price Intelligence and Provider Status. <code>--output</code> is limited to Price Intelligence JSON; it is not a generic export flag for other commands.</p></section>
+<section id="price" class="doc-section" aria-labelledby="price-title"><h2 id="price-title">Price Intelligence: text, JSON, and file export</h2><p>These examples are verified against the CLI parser and reporting tests:</p><pre><code>hotel-deal-hunter-public price-intelligence
+hotel-deal-hunter-public price-intelligence --format json
+hotel-deal-hunter-public price-intelligence --format json --output report.json</code></pre><p>The first two forms existed before v2.2.0. The third adds explicit file output with the same JSON document as stdout. Schema version remains <code>"1"</code>. The document distinguishes no database, no current offers, and available-offer results; unavailable historical evidence remains explicit rather than fabricated.</p><ul><li>File creation is exclusive: an existing file causes failure without overwrite.</li><li>The parent directory must already exist; no directories are created automatically.</li><li>Serialization completes before file creation, so serialization failure creates no export file.</li><li>Exports use UTF-8, LF line endings, and exactly one trailing newline.</li><li>Successful file output is silent on stdout. Without <code>--output</code>, JSON is emitted to stdout.</li></ul><p>Compatibility and confidence describe recorded evidence. They do not predict availability or guarantee a future booking price.</p></section>
+<section id="status" class="doc-section" aria-labelledby="status-title"><h2 id="status-title">Provider Status: observation, not enforcement</h2><pre><code>hotel-deal-hunter-public provider-status
+hotel-deal-hunter-public provider-status --format json</code></pre><p>Provider Status combines provider descriptions with persisted health and quota activity. It makes no provider calls, does not construct the search engine, does not refresh usage from an external service, and does not initialize a missing database.</p><dl class="doc-definitions"><dt><code>usage_count</code></dt><dd>Authoritative recorded-event count for the current UTC month, queried independently of the recent event sample. It is not a provider’s billing statement or remaining allowance.</dd><dt><code>recent_event_count</code></dt><dd>That provider’s event count within the latest 100 persisted events across providers. It is bounded and can be lower than monthly usage.</dd><dt>Latest quota event</dt><dd>A valid recorded timestamp, success flag, and HTTP status may be displayed. HTTP status accepts integers from 100 through 599 and rejects booleans, numeric strings, and floats.</dd><dt>No inferred quota state</dt><dd>The report’s quota <code>configured</code>, <code>state</code>, <code>limit</code>, and <code>remaining</code> fields remain <code>null</code>. Unsupported quota and unavailable persisted activity have explicit source labels.</dd></dl></section>
+<section id="health" class="doc-section" aria-labelledby="health-title"><h2 id="health-title">Health ages and serialization guarantees</h2><p><code>last_attempt_age_seconds</code> and <code>last_success_age_seconds</code> describe persisted timestamps relative to report generation. Unavailable, invalid, or future timestamps yield <code>null</code>. There is no stale-health threshold implied by an age, and diagnostics do not change trust or production eligibility. This differs from Price Intelligence’s separate offer-freshness classification.</p><p>Reports use UTC timestamps ending in <code>Z</code> at whole-second precision. Aware timestamps normalize to UTC; the pre-existing naive-as-UTC convention is retained. JSON uses two-space indentation, insertion-order fields, strict rejection of NaN and Infinity, and one final newline. These shared mechanics do not add or remove report fields.</p></section>
+<section id="safety" class="doc-section" aria-labelledby="safety-title"><h2 id="safety-title">Operational safeguards and limits</h2><p>Malformed persisted data is filtered through safe parsing and allowlisted warnings. Reports exclude raw error text, credentials, source endpoints, and transient provider identifiers. Stable warning row identifiers may remain when part of the report schema. Non-finite persisted latency is treated as unavailable.</p><p>For scan dry-run, the verified syntax is <code>hotel-deal-hunter-public scan --dry-run</code>. It suppresses persistent writes and notification delivery, but it may still invoke configured providers. It is not an offline mode. No scan, live provider, or notification workflow was exercised for these public pages.</p><p>v2.2.0 does not change provider activation, eligibility, ranking, quota enforcement, database schema, or API contracts. Implemented safeguards and automated tests do not establish live provider validation or a production deployment. See <a href="validation.html">validation evidence</a> and <a href="roadmap.html">completed versus planned work</a>.</p></section></div>
+    </div>
+  </main>
+  <footer class="container doc-footer">
+    <p><a href="project.html">← Back to Hotel Deal Hunter AI</a></p>
+    <p>Questions? <a href="mailto:kennethsanchez.ai@gmail.com">Contact Kenneth Sanchez</a> · <a href="index.html#work">Portfolio</a></p>
+  </footer>
+</body>
+</html>
