@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hotel Deal Hunter AI project overview by Kenneth Sanchez.">
+  <meta name="description" content="Hotel Deal Hunter AI v2.2.0: completed private release with read-only reporting, 428 passing tests, and successful Python and container CI.">
   <meta name="theme-color" content="#3267e8">
-  <title>Hotel Deal Hunter AI · Project Overview</title>
+  <title>Hotel Deal Hunter AI v2.2.0 · Project Overview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -44,13 +44,13 @@
           </div>
         </div>
         <aside class="summary-card">
-          <span>Current release</span>
-          <strong>v1.7.0</strong>
+          <span>Current completed release</span>
+          <strong>v2.2.0</strong>
           <div class="mini-grid">
-            <div><b>135</b><small>tests passing</small></div>
-            <div><b>Verified</b><small>production deployment</small></div>
-            <div><b>Guarded</b><small>notifications</small></div>
-            <div><b>Safe</b><small>dry-run mode</small></div>
+            <div><b>428</b><small>tests passing</small></div>
+            <div><b>Passed</b><small>Python 3.12 &amp; 3.13 CI</small></div>
+            <div><b>Passed</b><small>container/build CI</small></div>
+            <div><b>Private</b><small>release artifacts</small></div>
           </div>
         </aside>
       </div>
@@ -73,6 +73,23 @@
             and responsible use of approved travel data.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section id="release" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Completed in v2.2.0</p><h2>Clearer reports, safer exports.</h2></div>
+          <p>New reporting capabilities build on existing price analysis and provider status reports without changing recommendation ranking.</p>
+        </div>
+        <div class="card-grid four">
+          <article><h3>Price Intelligence JSON file export</h3><p>Save the existing JSON report to a new UTF-8 file. Export never overwrites a file, requires an existing parent directory, and is silent on success.</p></article>
+          <article><h3>Provider quota activity</h3><p>Read-only diagnostics distinguish authoritative current UTC-month usage from a bounded recent-event sample. They describe persisted activity, not remaining allowance or quota exhaustion.</p></article>
+          <article><h3>Health-age diagnostics</h3><p>See the ages of persisted provider attempts and successes. Missing, invalid, or future timestamps remain unavailable; ages do not imply a stale threshold or alter provider trust.</p></article>
+          <article><h3>Shared reporting serialization</h3><p>Consistent UTC timestamps and deterministic JSON formatting preserve existing report compatibility. Invalid non-finite numbers are rejected before export file creation.</p></article>
+        </div>
+        <p class="copy">v2.2.0 is a completed release in the private project repository. Source code and release artifacts are not public downloads. This public page is a project overview; it does not offer a deployed application.</p>
+        <p class="copy">Reporting makes no live provider calls. This release does not change search behavior, ranking or tie-break rules, provider trust or eligibility, quota enforcement, database schema, or API contracts. It does not enable providers or claim live provider validation, application deployment, or PyPI publication.</p>
       </div>
     </section>
 
@@ -125,10 +142,10 @@
           <p>The project emphasizes controlled changes, reproducible validation, and rollback readiness.</p>
         </div>
         <div class="card-grid four">
-          <article><h3>135 tests passing</h3><p>Regression coverage across core workflows and stabilization changes.</p></article>
-          <article><h3>Self-check</h3><p>Validates configuration, profile status, notifications, providers, and version consistency.</p></article>
+          <article><h3>428 tests passing</h3><p>Release validation covers reporting, export safety, persisted-data redaction, and existing workflows.</p></article>
+          <article><h3>Python CI passed</h3><p>GitHub Actions succeeded on Python 3.12 and Python 3.13, including tests and compilation checks.</p></article>
           <article><h3>Dry-run mode</h3><p>Exercises the decision path without notifications or persistent writes.</p></article>
-          <article><h3>Verified backups</h3><p>Creates a rollback point before production upgrades.</p></article>
+          <article><h3>Container/build CI passed</h3><p>The container build succeeded. Build validation does not imply application deployment or live provider access.</p></article>
         </div>
       </div>
     </section>
@@ -153,8 +170,8 @@
         <div class="roadmap">
           <article><span>v1.5</span><h3>Foundation</h3><p>Core search, scoring, comparison, and manual workflows.</p></article>
           <article><span>v1.6</span><h3>Stabilization</h3><p>Reliability, controls, and packaging readiness.</p></article>
-          <article><span>v1.7</span><h3>Production readiness</h3><p>Self-check, dry-run, notification gating, and verified deployment.</p></article>
-          <article class="future"><span>v1.8</span><h3>Approved provider integration</h3><p>Integrate a documented hotel-rate source after formal access approval.</p></article>
+          <article><span>v2.2.0</span><h3>Completed release</h3><p>JSON file export, persisted quota activity, health ages, and shared reporting serialization.</p></article>
+          <article class="future"><span>Planned</span><h3>Approved provider integration</h3><p>Future live-source integration remains subject to formal access approval and separate validation.</p></article>
         </div>
       </div>
     </section>
