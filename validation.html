@@ -33,6 +33,16 @@
       <div class="container">
         <p class="eyebrow">Technical documentation · v2.2.0</p>
         <h1>Validation</h1><p class="lead">What the v2.2.0 tests, CI, package checks, and offline smoke tests establish—and what remains unverified.</p>
+        <div class="doc-grid" role="group" aria-label="Release validation status">
+          <section class="doc-card" aria-labelledby="automated-validation-title">
+            <h2 id="automated-validation-title">AUTOMATED VALIDATION — COMPLETED</h2>
+            <p>Historical v2.2.0 release validation: 428 passing local tests; Python 3.12, Python 3.13, and container/build CI passed. CLI smoke tests used isolated fixtures with network access blocked.</p>
+          </section>
+          <section class="doc-card" aria-labelledby="live-verification-title">
+            <h2 id="live-verification-title">LIVE-PROVIDER VERIFICATION — NOT PERFORMED</h2>
+            <p>No live-provider verification, provider activation, production deployment, registry publication, or end-to-end live booking verification was performed as part of this release validation.</p>
+          </section>
+        </div>
         <div class="doc-links" role="navigation" aria-label="Technical documentation"><a href="project.html">Project overview</a><a href="architecture.html">Architecture</a><a href="features.html">Features</a><a href="validation.html" aria-current="page">Validation</a><a href="roadmap.html">Roadmap</a></div>
         <p class="doc-note">Public technical overview of a private personal-use project. Source code, CLI access, CI records, and release artifacts are not public downloads. Examples describe implemented behavior, not a hosted service.</p>
       </div>
